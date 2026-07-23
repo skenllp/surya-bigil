@@ -2109,6 +2109,83 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ===== MOMENTS CAROUSEL ===== */
+.moments-carousel {
+  width: 340px;
+  margin: 52px auto 0;
+  position: relative;
+}
+#carousel-track-container {
+  width: 340px;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,.55);
+  border: 1px solid rgba(201,160,99,.2);
+  position: relative;
+}
+#carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform .55s cubic-bezier(.25,.8,.25,1);
+}
+.mslide {
+  min-width: 340px;
+  width: 340px;
+  height: 340px;
+  flex-shrink: 0;
+  position: relative;
+}
+.mslide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.mcap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 44px 18px 16px;
+  background: linear-gradient(transparent, rgba(20,13,6,.75));
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .95rem;
+  color: #f3ece2;
+  text-align: center;
+  pointer-events: none;
+}
+.moments-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 28px;
+}
+.moments-controls button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #C9A063;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .3s;
+  line-height: 1;
+}
+#carousel-prev { background: transparent; color: #E4C88F; }
+#carousel-next { background: #C9A063; color: #221609; border-color: #C9A063; }
+#carousel-prev:hover, #carousel-next:hover { background: #E4C88F; color: #221609; border-color: #E4C88F; }
+#carousel-dots { display: flex; gap: 7px; align-items: center; }
+
+@media (max-width: 400px) {
+  .moments-carousel { width: 290px; }
+  #carousel-track-container { width: 290px; height: 290px; }
+  .mslide { min-width: 290px; width: 290px; height: 290px; }
+}
 </style>
 </head>
 <body>
@@ -2739,82 +2816,27 @@ footer {
   </section>
 
   <!-- ========== GALLERY ========== -->
-  <section class="gallery-section" id="gallery">
-    <div class="section-header">
-      <div class="eyebrow reveal">Memories</div>
-      <h2 class="section-title reveal reveal-delay-1">Our Gallery</h2>
-      <div class="divider reveal reveal-delay-2">
-        <span class="line"></span>
-        <span class="gem"></span>
-        <span class="line"></span>
-      </div>
-      <p class="section-subtitle reveal reveal-delay-2">
-        Beautiful moments captured in time, framed in love
-      </p>
-    </div>
+  <section id="moments" style="background:#221609;text-align:center;padding:90px 6vw;">
+    <span class="label reveal" style="color:var(--gold-light);">Our Moments</span>
+    <h2 class="h2 reveal" style="margin-top:14px;font-style:italic;color:#fff;">A Love Story in Frames</h2>
 
-    <div class="gallery-carousel-wrapper reveal">
-      <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous slide">&#8249;</button>
-      
-      <div class="carousel-track-container" id="carousel-track-container">
-        <div class="carousel-track" id="carousel-track">
-          <div class="carousel-slide">
-            <div class="gallery-item" data-index="0" role="button" tabindex="0" aria-label="View gallery image 1">
-              <img src="gallery_1.jpg" alt="Surya &amp; Bigil — Couple Portrait" loading="lazy">
-              <div class="gallery-overlay">
-                <div class="gallery-overlay-icon">✦</div>
-                <div class="gallery-caption-title">Surya &amp; Bigil</div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="gallery-item" data-index="1" role="button" tabindex="0" aria-label="View gallery image 2">
-              <img src="gallery_2.jpg" alt="Ceremony Decor — Floral Arch" loading="lazy">
-              <div class="gallery-overlay">
-                <div class="gallery-overlay-icon">🌸</div>
-                <div class="gallery-caption-title">Ceremony Decor</div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="gallery-item" data-index="2" role="button" tabindex="0" aria-label="View gallery image 3">
-              <img src="gallery_3.jpg" alt="Romantic Moments" loading="lazy">
-              <div class="gallery-overlay">
-                <div class="gallery-overlay-icon">❤</div>
-                <div class="gallery-caption-title">Romantic Moments</div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="gallery-item" data-index="3" role="button" tabindex="0" aria-label="View gallery image 4">
-              <img src="gallery_4.jpg" alt="Engagement Rings" loading="lazy">
-              <div class="gallery-overlay">
-                <div class="gallery-overlay-icon">💍</div>
-                <div class="gallery-caption-title">Sacred Vows</div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="gallery-item" data-index="4" role="button" tabindex="0" aria-label="View gallery image 5">
-              <img src="gallery_5.jpg" alt="Holy Venue" loading="lazy">
-              <div class="gallery-overlay">
-                <div class="gallery-overlay-icon">⛪</div>
-                <div class="gallery-caption-title">Holy Venue</div>
-              </div>
-            </div>
-          </div>
+    <div class="moments-carousel reveal">
+      <!-- Card -->
+      <div id="carousel-track-container">
+        <div id="carousel-track">
+          <div class="mslide"><img src="gallery_1.jpg" alt="Surya and Bigil"><div class="mcap">Every love story is beautiful, but ours is our favourite.</div></div>
+          <div class="mslide"><img src="gallery_2.jpg" alt="Surya and Bigil"><div class="mcap">Miles apart, never distant.</div></div>
+          <div class="mslide"><img src="gallery_3.jpg" alt="Surya and Bigil"><div class="mcap">A promise made in sunlight.</div></div>
+          <div class="mslide"><img src="gallery_4.jpg" alt="Surya and Bigil"><div class="mcap">Home is wherever you are.</div></div>
+          <div class="mslide"><img src="gallery_5.jpg" alt="Surya and Bigil"><div class="mcap">Together, always.</div></div>
         </div>
       </div>
 
-      <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next slide">&#8250;</button>
-
-      <!-- Carousel dots -->
-      <div class="carousel-dots" id="carousel-dots">
-        <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
-        <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
-        <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
-        <button class="carousel-dot" data-index="3" aria-label="Slide 4"></button>
-        <button class="carousel-dot" data-index="4" aria-label="Slide 5"></button>
+      <!-- Controls -->
+      <div class="moments-controls">
+        <button id="carousel-prev" aria-label="Previous">&#8249;</button>
+        <div id="carousel-dots"></div>
+        <button id="carousel-next" aria-label="Next">&#8250;</button>
       </div>
     </div>
   </section>
@@ -3242,75 +3264,55 @@ lightbox.addEventListener('touchend', e => {
    ==================================================== */
 (function initGalleryCarousel() {
   const track = document.getElementById('carousel-track');
-  const slides = document.querySelectorAll('.carousel-slide');
+  const slides = document.querySelectorAll('.mslide');
   const nextBtn = document.getElementById('carousel-next');
   const prevBtn = document.getElementById('carousel-prev');
-  const dots = document.querySelectorAll('.carousel-dot');
+  const dotsWrap = document.getElementById('carousel-dots');
   let currentIndex = 0;
   let autoPlayTimer = null;
 
   if (!track || slides.length === 0) return;
 
+  // Build dots dynamically
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.style.cssText = `width:${i===0?'28px':'8px'};height:8px;border-radius:10px;border:none;background:${i===0?'#C9A063':'rgba(201,160,99,.35)'};cursor:pointer;transition:.3s;padding:0;`;
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.addEventListener('click', () => { updateCarousel(i); startAutoPlay(); });
+    dotsWrap.appendChild(d);
+  });
+
   function updateCarousel(index) {
     currentIndex = (index + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentIndex);
+    const slideWidth = slides[0] ? slides[0].offsetWidth : 340;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    [...dotsWrap.children].forEach((d, idx) => {
+      d.style.width = idx === currentIndex ? '28px' : '8px';
+      d.style.background = idx === currentIndex ? '#C9A063' : 'rgba(201,160,99,.35)';
     });
   }
 
   function startAutoPlay() {
     stopAutoPlay();
-    autoPlayTimer = setInterval(() => {
-      updateCarousel(currentIndex + 1);
-    }, 4500);
+    autoPlayTimer = setInterval(() => updateCarousel(currentIndex + 1), 4500);
   }
-
   function stopAutoPlay() {
     if (autoPlayTimer) clearInterval(autoPlayTimer);
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      updateCarousel(currentIndex + 1);
-      startAutoPlay();
-    });
-  }
+  if (nextBtn) nextBtn.addEventListener('click', () => { updateCarousel(currentIndex + 1); startAutoPlay(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { updateCarousel(currentIndex - 1); startAutoPlay(); });
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      updateCarousel(currentIndex - 1);
-      startAutoPlay();
-    });
-  }
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const idx = parseInt(dot.dataset.index);
-      updateCarousel(idx);
-      startAutoPlay();
-    });
-  });
-
-  // Touch swipe support for carousel
-  let touchStartPos = 0;
+  // Touch swipe
   const container = document.getElementById('carousel-track-container');
+  let touchStartPos = 0;
   if (container) {
-    container.addEventListener('touchstart', e => {
-      touchStartPos = e.changedTouches[0].clientX;
-      stopAutoPlay();
-    }, { passive: true });
-
+    container.addEventListener('touchstart', e => { touchStartPos = e.changedTouches[0].clientX; stopAutoPlay(); }, { passive: true });
     container.addEventListener('touchend', e => {
       const diff = touchStartPos - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) updateCarousel(currentIndex + 1);
-        else updateCarousel(currentIndex - 1);
-      }
+      if (Math.abs(diff) > 40) { diff > 0 ? updateCarousel(currentIndex + 1) : updateCarousel(currentIndex - 1); }
       startAutoPlay();
     }, { passive: true });
-
     container.addEventListener('mouseenter', stopAutoPlay);
     container.addEventListener('mouseleave', startAutoPlay);
   }
