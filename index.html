@@ -2020,11 +2020,21 @@ footer {
   .carousel-prev { left: 8px; }
   .carousel-next { right: 8px; }
   .carousel-slide .gallery-item {
-    aspect-ratio: 4 / 3;
-    border-radius: 8px;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+  }
+  .carousel-slide .gallery-item img {
+    object-position: center top;
+  }
+  .gallery-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, transparent 50%, rgba(42,27,20,0.75) 100%);
   }
   .gallery-caption-title {
     font-size: 1.05rem;
+  }
+  .gallery-overlay-icon {
+    transform: translateY(0) scale(1);
   }
 
   .lightbox-nav {
