@@ -2110,6 +2110,26 @@ footer {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ===== COUPLE CONTACT LINKS ===== */
+.couple-contacts {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-align: left;
+}
+.couple-contact-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: .78rem;
+  color: var(--brown-mid);
+  text-decoration: none;
+  letter-spacing: .01em;
+  transition: color .2s;
+  display: block;
+  word-break: break-all;
+}
+.couple-contact-link:hover { color: var(--gold-deep); }
+
 /* ===== MOMENTS CAROUSEL ===== */
 .moments-carousel {
   width: 340px;
@@ -2543,7 +2563,13 @@ footer {
         <div class="couple-address">
           Navallil House<br>
           Koodaranji, Kozhikode<br>
-          Kerala, India — 673604
+          Kerala, India
+        </div>
+        <div class="couple-contacts">
+          <a href="tel:+447586581088" class="couple-contact-link">📞 +44 7586 581088</a>
+          <a href="tel:+919846381112" class="couple-contact-link">📞 +91 9846381112</a>
+          <a href="mailto:suryajosenavallil@gmail.com" class="couple-contact-link">✉ suryajosenavallil@gmail.com</a>
+          <a href="https://instagram.com/Surya_Jose" target="_blank" rel="noopener" class="couple-contact-link">📸 @Surya_Jose</a>
         </div>
         <!-- Floral deco -->
         <svg class="couple-card-floral" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -2578,7 +2604,13 @@ footer {
         <div class="couple-address">
           Valothil House<br>
           Veloor Kara, Puthencruz P.O<br>
-          Ernakulam, Kerala, India — 682308
+          Ernakulam, Kerala — 682308
+        </div>
+        <div class="couple-contacts">
+          <a href="tel:+447384178172" class="couple-contact-link">📞 +44 7384 178172</a>
+          <a href="tel:+919048736830" class="couple-contact-link">📞 +91 9048736830 <span style="font-size:.75em;opacity:.7;">(Father)</span></a>
+          <a href="mailto:bigilmathai916@gmail.com" class="couple-contact-link">✉ bigilmathai916@gmail.com</a>
+          <a href="https://instagram.com/mathai_bigil" target="_blank" rel="noopener" class="couple-contact-link">📸 @mathai_bigil</a>
         </div>
         <svg class="couple-card-floral" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="60" cy="60" r="20" fill="#C8A96A"/>
@@ -2629,7 +2661,7 @@ footer {
     <div class="reveal reveal-delay-3" style="text-align:center;">
       <div class="countdown-event-label">
         <span class="gold-dot"></span>
-        Bride's Madhuram Veppu · 9 Sep 2026 · 5:30 PM
+        Bride's Madhuram Veppu · 9 Sep 2026 · 5:00 PM
       </div>
     </div>
   </section>
@@ -2656,96 +2688,141 @@ footer {
         <div class="event-card reveal reveal-left">
           <div class="event-number-tag">Event 01</div>
           <h3 class="event-name">Bride's Madhuram Veppu</h3>
-
           <div class="event-detail">
             <span class="event-detail-icon">📅</span>
             <div class="event-detail-text">
               <strong>9 September 2026 — Wednesday</strong>
-              5:30 PM onwards
+              5:00 PM onwards
             </div>
           </div>
-
           <div class="event-detail">
             <span class="event-detail-icon">📍</span>
             <div class="event-detail-text">
               <strong>Navallil House</strong>
               Koodaranji, Kozhikode<br>
-              Kerala, India — 673604
+              Kerala, India
             </div>
           </div>
-
           <div class="event-actions">
-            <a class="btn"
-               href="https://www.google.com/maps/search/?api=1&query=Koodaranji+Kozhikode+Kerala"
-               target="_blank" rel="noopener" id="event1-maps">
-              <span class="btn-icon">🗺</span>
-              <span>Google Maps</span>
+            <a class="btn" href="https://maps.app.goo.gl/cvopwfp2nUT3VgLA8" target="_blank" rel="noopener">
+              <span class="btn-icon">🗺</span><span>Google Maps</span>
             </a>
-            <a class="btn"
-               href="https://maps.google.com/?daddr=Koodaranji+Kozhikode+Kerala"
-               target="_blank" rel="noopener" id="event1-navigate">
-              <span class="btn-icon">🧭</span>
-              <span>Navigate</span>
+            <a class="btn" href="https://maps.app.goo.gl/cvopwfp2nUT3VgLA8" target="_blank" rel="noopener">
+              <span class="btn-icon">🧭</span><span>Navigate</span>
             </a>
-            <button class="btn" id="event1-cal" onclick="addToCalendar('Bride\'s Madhuram Veppu — Surya & Bigil','Navallil House, Koodaranji, Kozhikode, Kerala 673604','20260909T173000','20260909T210000')">
-              <span class="btn-icon">🗓</span>
-              <span>Add to Calendar</span>
+            <button class="btn" onclick="addToCalendar('Bride\'s Madhuram Veppu — Surya &amp; Bigil','Navallil House, Koodaranji, Kozhikode, Kerala','20260909T170000','20260909T210000')">
+              <span class="btn-icon">🗓</span><span>Add to Calendar</span>
             </button>
           </div>
         </div>
-
-        <div class="event-node">
-          <div class="event-node-circle">🌸</div>
-        </div>
-
+        <div class="event-node"><div class="event-node-circle">🌸</div></div>
         <div class="event-spacer"></div>
       </div>
 
       <!-- Event 2: Groom's Madhuram Veppu -->
       <div class="event-card-wrap">
         <div class="event-spacer"></div>
-
-        <div class="event-node">
-          <div class="event-node-circle">💍</div>
-        </div>
-
+        <div class="event-node"><div class="event-node-circle">🌿</div></div>
         <div class="event-card reveal reveal-right">
           <div class="event-number-tag">Event 02</div>
           <h3 class="event-name">Groom's Madhuram Veppu</h3>
-
           <div class="event-detail">
             <span class="event-detail-icon">📅</span>
             <div class="event-detail-text">
               <strong>12 September 2026 — Saturday</strong>
-              6:00 PM
+              5:00 PM onwards
             </div>
           </div>
-
           <div class="event-detail">
             <span class="event-detail-icon">📍</span>
             <div class="event-detail-text">
               <strong>Valothil House</strong>
               Veloor Kara, Puthencruz P.O<br>
-              Ernakulam, Kerala, India — 682308
+              Ernakulam, Kerala — 682308
             </div>
           </div>
-
           <div class="event-actions">
-            <a class="btn"
-               href="https://www.google.com/maps/search/?api=1&query=Puthencruz+Ernakulam+Kerala"
-               target="_blank" rel="noopener" id="event2-maps">
-              <span class="btn-icon">🗺</span>
-              <span>Google Maps</span>
+            <a class="btn" href="https://maps.app.goo.gl/YinFw7A5E3yQYUkp8" target="_blank" rel="noopener">
+              <span class="btn-icon">🗺</span><span>Google Maps</span>
             </a>
-            <a class="btn"
-               href="https://maps.google.com/?daddr=Puthencruz+Ernakulam+Kerala"
-               target="_blank" rel="noopener" id="event2-navigate">
-              <span class="btn-icon">🧭</span>
-              <span>Navigate</span>
+            <a class="btn" href="https://maps.app.goo.gl/YinFw7A5E3yQYUkp8" target="_blank" rel="noopener">
+              <span class="btn-icon">🧭</span><span>Navigate</span>
             </a>
-            <button class="btn" id="event2-cal" onclick="addToCalendar('Groom\'s Madhuram Veppu — Surya & Bigil','Valothil House, Veloor Kara, Puthencruz, Ernakulam, Kerala 682308','20260912T180000','20260912T210000')">
-              <span class="btn-icon">🗓</span>
-              <span>Add to Calendar</span>
+            <button class="btn" onclick="addToCalendar('Groom\'s Madhuram Veppu — Surya &amp; Bigil','Valothil House, Veloor Kara, Puthencruz, Ernakulam, Kerala 682308','20260912T170000','20260912T210000')">
+              <span class="btn-icon">🗓</span><span>Add to Calendar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 3: Engagement -->
+      <div class="event-card-wrap">
+        <div class="event-card reveal reveal-left">
+          <div class="event-number-tag">Event 03</div>
+          <h3 class="event-name">Engagement</h3>
+          <div class="event-detail">
+            <span class="event-detail-icon">📅</span>
+            <div class="event-detail-text">
+              <strong>10 September 2026 — Thursday</strong>
+              11:30 AM onwards
+            </div>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">�</span>
+            <div class="event-detail-text">
+              <strong>St. Sebastian's Church</strong>
+              Koodaranji, Kozhikode<br>
+              Reception: Marina Auditorium, Koodaranji — 12:00 PM onwards
+            </div>
+          </div>
+          <div class="event-actions">
+            <a class="btn" href="https://maps.app.goo.gl/YjXCuVNt3rZM4czz6" target="_blank" rel="noopener">
+              <span class="btn-icon">🗺</span><span>Google Maps</span>
+            </a>
+            <a class="btn" href="https://maps.app.goo.gl/YjXCuVNt3rZM4czz6" target="_blank" rel="noopener">
+              <span class="btn-icon">🧭</span><span>Navigate</span>
+            </a>
+            <button class="btn" onclick="addToCalendar('Engagement — Surya &amp; Bigil','St. Sebastian\'s Church, Koodaranji, Kozhikode, Kerala','20260910T113000','20260910T150000')">
+              <span class="btn-icon">🗓</span><span>Add to Calendar</span>
+            </button>
+          </div>
+        </div>
+        <div class="event-node"><div class="event-node-circle">💍</div></div>
+        <div class="event-spacer"></div>
+      </div>
+
+      <!-- Event 4: The Wedding -->
+      <div class="event-card-wrap">
+        <div class="event-spacer"></div>
+        <div class="event-node"><div class="event-node-circle">✝</div></div>
+        <div class="event-card reveal reveal-right">
+          <div class="event-number-tag">Event 04</div>
+          <h3 class="event-name">The Wedding</h3>
+          <div class="event-detail">
+            <span class="event-detail-icon">📅</span>
+            <div class="event-detail-text">
+              <strong>14 September 2026 — Monday</strong>
+              11:00 AM · Holy Matrimony
+            </div>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">📍</span>
+            <div class="event-detail-text">
+              <strong>Mount Zakkai</strong>
+              St. George Jacobite Syrian Orthodox Church<br>
+              Veloor, Ernakulam, Kerala<br>
+              Reception: Church Auditorium — time TBC
+            </div>
+          </div>
+          <div class="event-actions">
+            <a class="btn" href="https://maps.app.goo.gl/C8RT92NH8bzLY21z8" target="_blank" rel="noopener">
+              <span class="btn-icon">🗺</span><span>Google Maps</span>
+            </a>
+            <a class="btn" href="https://maps.app.goo.gl/C8RT92NH8bzLY21z8" target="_blank" rel="noopener">
+              <span class="btn-icon">🧭</span><span>Navigate</span>
+            </a>
+            <button class="btn" onclick="addToCalendar('Wedding — Surya &amp; Bigil','Mount Zakkai, St. George Jacobite Syrian Orthodox Church, Veloor, Ernakulam, Kerala','20260914T110000','20260914T150000')">
+              <span class="btn-icon">🗓</span><span>Add to Calendar</span>
             </button>
           </div>
         </div>
@@ -2909,6 +2986,15 @@ footer {
     <div class="footer-tagline reveal reveal-delay-1">With Love · September 2026</div>
 
     <div class="footer-hashtag reveal reveal-delay-2">#SuryaWedsBigil</div>
+
+    <div class="footer-verse reveal reveal-delay-2" style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.05rem; color:var(--gold-deep); margin-bottom:18px;">
+      മത്തായിയുടെ കൂട്ടുകാർക്ക്
+    </div>
+
+    <div class="reveal reveal-delay-2" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:24px;">
+      <span style="font-family:'Poppins', sans-serif; font-size:0.68rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-deep); background:var(--gold-pale); border:1px solid var(--gold-light); border-radius:50px; padding:6px 18px;">14th Wedding</span>
+      <span style="font-family:'Poppins', sans-serif; font-size:0.68rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-deep); background:var(--gold-pale); border:1px solid var(--gold-light); border-radius:50px; padding:6px 18px;">9th Engagement</span>
+    </div>
 
     <div class="footer-verse reveal reveal-delay-2">
       "Two are better than one, because they have a good return for their labor."<br>
@@ -3106,7 +3192,7 @@ revealEls.forEach(el => revealObserver.observe(el));
 /* ====================================================
    COUNTDOWN TIMER
    ==================================================== */
-const cdTarget = new Date('2026-09-09T17:30:00+05:30').getTime();
+const cdTarget = new Date('2026-09-09T17:00:00+05:30').getTime();
 
 function padNum(n) { return String(n).padStart(2, '0'); }
 
