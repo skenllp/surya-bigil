@@ -1,0 +1,11 @@
+{
+  "name": "Surya & Bigil Betrothal",
+  "short_name": "S & B",
+  "description": "Premium Christian Betrothal Invitation — Surya & Bigil, September 2026",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9F5EF",
+  "theme_color": "#C8A96A",
+  "orientation": "portrait",
+  "icons": []
+}
