@@ -56,7 +56,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+Malayalam:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
@@ -589,6 +589,22 @@ section > * { position: relative; z-index: 1; }
   text-shadow: 0 1px 6px rgba(255,253,248,0.9);
 }
 
+.hero-eyebrow-highlight {
+  display: inline-block;
+  font-family: 'Noto Sans Malayalam', 'Poppins', sans-serif;
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--brown);
+  background: linear-gradient(135deg, var(--gold-pale), var(--gold-light));
+  border: 1px solid var(--gold);
+  border-radius: 50px;
+  padding: 8px 26px;
+  box-shadow: 0 6px 24px rgba(160,120,64,0.28);
+  text-shadow: none;
+}
+
 .hero-tagline {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(1.15rem, 2.4vw, 1.45rem);
@@ -790,6 +806,114 @@ section > * { position: relative; z-index: 1; }
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   color: var(--gold);
   align-self: center;
+}
+
+/* ============================================================
+   COUNTDOWN SECTION
+   ============================================================ */
+.countdown-section {
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 20%, rgba(200,169,106,0.10), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 80%, rgba(125,138,107,0.07), transparent 60%),
+    var(--beige);
+  text-align: center;
+}
+
+.countdown-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-style: italic;
+  color: var(--brown-light);
+  margin-bottom: 42px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 680px;
+  margin: 0 auto 40px;
+}
+
+.cbox {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 32px 16px 28px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(74,52,39,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cbox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(74,52,39,0.14);
+}
+.cbox::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+}
+
+.cnum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  font-weight: 600;
+  color: var(--brown);
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+.cnum.flip {
+  animation: flipNum 0.35s cubic-bezier(.55,.06,.68,.19);
+}
+@keyframes flipNum {
+  0%   { transform: translateY(0);     opacity: 1; }
+  50%  { transform: translateY(-12px); opacity: 0; }
+  51%  { transform: translateY(12px);  opacity: 0; }
+  100% { transform: translateY(0);     opacity: 1; }
+}
+
+.clabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-top: 10px;
+}
+
+.countdown-event-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--brown-mid);
+  backdrop-filter: blur(8px);
+}
+.countdown-event-label .gold-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: cdPulse 2s infinite;
+}
+@keyframes cdPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.6; }
+}
+
+@media (max-width: 600px) {
+  .countdown-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
 
 /* ============================================================
@@ -1572,6 +1696,45 @@ section > * { position: relative; z-index: 1; }
 }
 
 /* ============================================================
+   WISHES BOX SECTION
+   ============================================================ */
+.wishes-section {
+  background: var(--ivory);
+}
+
+.wishes-inner {
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--cream);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 48px 44px;
+  box-shadow: 0 20px 70px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.9);
+  text-align: center;
+}
+
+.wishes-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.wishes-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--brown-light);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.wishes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+}
+
+/* ============================================================
    FAMILY SECTION
    ============================================================ */
 .family-section {
@@ -2221,6 +2384,7 @@ footer {
     <li><a href="#events">Events</a></li>
     <li><a href="#story">Story</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -2236,6 +2400,8 @@ footer {
   <a href="#story"      class="drawer-link">Our Story</a>
   <a href="#gallery"    class="drawer-link">Gallery</a>
   <a href="#compliments" class="drawer-link">Compliments</a>
+  <a href="#rsvp"        class="drawer-link">RSVP</a>
+  <a href="#wishes"      class="drawer-link">Wishes</a>
 </div>
 
 <!-- ============================================================
@@ -2340,7 +2506,7 @@ footer {
       </svg>
     </div>
 
-    <div class="hero-eyebrow reveal reveal-delay-1">Wedding Invitation</div>
+    <div class="hero-eyebrow reveal reveal-delay-1"><span class="hero-eyebrow-highlight">മത്തായിയുടെ കല്യാണം</span></div>
 
     <div class="hero-tagline reveal reveal-delay-2">
       We cordially invite you to celebrate with us
@@ -2433,6 +2599,48 @@ footer {
         "Therefore what God has joined together, let no one separate."
       </p>
       <p class="eyebrow reveal reveal-delay-5" style="text-align:center; margin-top:8px;">— Matthew 19:6</p>
+    </div>
+  </section>
+
+  <!-- ========== COUNTDOWN ========== -->
+  <section class="countdown-section" id="countdown">
+    <div class="section-header">
+      <div class="eyebrow reveal">Counting Down</div>
+      <h2 class="section-title reveal reveal-delay-1">Until Our Special Day</h2>
+      <div class="divider reveal reveal-delay-2">
+        <span class="line"></span>
+        <span class="gem"></span>
+        <span class="line"></span>
+      </div>
+      <div class="countdown-label reveal reveal-delay-2">
+        The Wedding — 14 September 2026
+      </div>
+    </div>
+
+    <div class="countdown-grid reveal reveal-delay-2">
+      <div class="cbox">
+        <div class="cnum" id="cd-days">00</div>
+        <div class="clabel">Days</div>
+      </div>
+      <div class="cbox">
+        <div class="cnum" id="cd-hours">00</div>
+        <div class="clabel">Hours</div>
+      </div>
+      <div class="cbox">
+        <div class="cnum" id="cd-mins">00</div>
+        <div class="clabel">Minutes</div>
+      </div>
+      <div class="cbox">
+        <div class="cnum" id="cd-secs">00</div>
+        <div class="clabel">Seconds</div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-3" style="text-align:center;">
+      <div class="countdown-event-label">
+        <span class="gold-dot"></span>
+        The Wedding · Mount Zakkai, Veloor · 14 Sep 2026 · 11:00 AM
+      </div>
     </div>
   </section>
 
@@ -2798,6 +3006,119 @@ footer {
   </section>
 
 
+  <!-- ========== RSVP ========== -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="section-header">
+      <div class="eyebrow reveal">Kindly Respond</div>
+      <h2 class="section-title reveal reveal-delay-1">RSVP</h2>
+      <div class="divider reveal reveal-delay-2">
+        <span class="line"></span>
+        <span class="gem"></span>
+        <span class="line"></span>
+      </div>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Please let us know if you'll be joining us — your response will be sent to us on WhatsApp
+      </p>
+    </div>
+
+    <div class="rsvp-inner reveal reveal-delay-3">
+      <form class="rsvp-form" id="rsvp-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="rsvp-name">Full Name</label>
+            <input class="form-input" type="text" id="rsvp-name" placeholder="Your name" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="rsvp-phone">Phone Number</label>
+            <input class="form-input" type="tel" id="rsvp-phone" placeholder="Your contact number" required>
+          </div>
+        </div>
+
+        <div class="form-field full">
+          <label class="form-label">Will You Be Attending?</label>
+          <div class="attendance-group">
+            <div class="attend-option">
+              <input type="radio" name="attendance" id="attend-yes" value="Joyfully Accepts" checked>
+              <label class="attend-label" for="attend-yes">✦ Joyfully Accepts</label>
+            </div>
+            <div class="attend-option">
+              <input type="radio" name="attendance" id="attend-no" value="Regretfully Declines">
+              <label class="attend-label" for="attend-no">Regretfully Declines</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="rsvp-guests">Number of Guests</label>
+            <input class="form-input" type="number" id="rsvp-guests" min="1" max="10" value="1">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="rsvp-event">Which Event(s)</label>
+            <select class="form-select" id="rsvp-event">
+              <option value="Bride's Madhuram Veppu">Bride's Madhuram Veppu — 9 Sep</option>
+              <option value="Groom's Madhuram Veppu">Groom's Madhuram Veppu — 12 Sep</option>
+              <option value="Engagement">Engagement — 10 Sep</option>
+              <option value="The Wedding" selected>The Wedding — 14 Sep</option>
+              <option value="All Events">All Events</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field full">
+          <label class="form-label" for="rsvp-message">Message (Optional)</label>
+          <textarea class="form-textarea" id="rsvp-message" placeholder="Any note for the couple..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit"><span>Send RSVP on WhatsApp</span></button>
+      </form>
+
+      <div class="rsvp-success" id="rsvp-success">
+        <div class="success-icon">💌</div>
+        <div class="success-title">Thank You!</div>
+        <div class="success-text">Your RSVP is on its way to us via WhatsApp. We can't wait to celebrate with you!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WISHES BOX ========== -->
+  <section class="wishes-section" id="wishes">
+    <div class="section-header">
+      <div class="eyebrow reveal">Share Your Love</div>
+      <h2 class="section-title reveal reveal-delay-1">Leave Your Wishes</h2>
+      <div class="divider reveal reveal-delay-2">
+        <span class="line"></span>
+        <span class="gem"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+
+    <div class="wishes-inner reveal reveal-delay-3">
+      <div class="wishes-icon">💐</div>
+      <p class="wishes-note">
+        A blessing, a prayer, or a few warm words — write your wishes for Surya &amp; Bigil below and send them our way.
+      </p>
+
+      <form class="wishes-form" id="wishes-form">
+        <div class="form-field">
+          <label class="form-label" for="wishes-name">Your Name</label>
+          <input class="form-input" type="text" id="wishes-name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="wishes-message">Your Wishes</label>
+          <textarea class="form-textarea" id="wishes-message" placeholder="Write your heartfelt wishes here..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit"><span>Send Wishes on WhatsApp</span></button>
+      </form>
+
+      <div class="rsvp-success" id="wishes-success">
+        <div class="success-icon">💐</div>
+        <div class="success-title">Thank You!</div>
+        <div class="success-text">Your beautiful wishes are on their way to Surya &amp; Bigil. God bless you!</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== QUOTE ========== -->
   <section class="quote-section">
     <div class="quote-wrap reveal reveal-zoom">
@@ -3049,6 +3370,99 @@ function addToCalendar(title, location, start, end) {
     `&details=${encodeURIComponent('You are invited to ' + title)}` +
     `&location=${encodeURIComponent(location)}`;
   window.open(url, '_blank', 'noopener');
+}
+
+/* ====================================================
+   COUNTDOWN TIMER
+   ==================================================== */
+const cdTarget = new Date('2026-09-14T11:00:00+05:30').getTime();
+
+function padNum(n) { return String(n).padStart(2, '0'); }
+
+function cdTick() {
+  const now  = Date.now();
+  const diff = Math.max(0, cdTarget - now);
+  const d    = Math.floor(diff / 86400000);
+  const h    = Math.floor((diff % 86400000) / 3600000);
+  const m    = Math.floor((diff % 3600000) / 60000);
+  const s    = Math.floor((diff % 60000) / 1000);
+
+  function updateEl(id, val) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const prev = el.textContent;
+    const next = padNum(val);
+    if (prev !== next) {
+      el.classList.remove('flip');
+      void el.offsetWidth; // reflow
+      el.classList.add('flip');
+      el.textContent = next;
+    }
+  }
+
+  updateEl('cd-days',  d);
+  updateEl('cd-hours', h);
+  updateEl('cd-mins',  m);
+  updateEl('cd-secs',  s);
+}
+
+cdTick();
+setInterval(cdTick, 1000);
+
+/* ====================================================
+   RSVP — SEND VIA WHATSAPP
+   ==================================================== */
+const WHATSAPP_NUMBER = '919048736830';
+
+const rsvpForm = document.getElementById('rsvp-form');
+if (rsvpForm) {
+  rsvpForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name       = document.getElementById('rsvp-name').value.trim();
+    const phone      = document.getElementById('rsvp-phone').value.trim();
+    const attendance = document.querySelector('input[name="attendance"]:checked').value;
+    const guests     = document.getElementById('rsvp-guests').value;
+    const eventName  = document.getElementById('rsvp-event').value;
+    const message    = document.getElementById('rsvp-message').value.trim();
+
+    let text = `*RSVP — Surya & Bigil's Wedding*\n\n`;
+    text += `Name: ${name}\n`;
+    text += `Phone: ${phone}\n`;
+    text += `Attendance: ${attendance}\n`;
+    text += `Guests: ${guests}\n`;
+    text += `Event(s): ${eventName}\n`;
+    if (message) text += `Message: ${message}\n`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank', 'noopener');
+
+    rsvpForm.style.display = 'none';
+    document.getElementById('rsvp-success').classList.add('show');
+  });
+}
+
+/* ====================================================
+   WISHES — SEND VIA WHATSAPP
+   ==================================================== */
+const wishesForm = document.getElementById('wishes-form');
+if (wishesForm) {
+  wishesForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name    = document.getElementById('wishes-name').value.trim();
+    const message = document.getElementById('wishes-message').value.trim();
+
+    let text = `*A Wish for Surya & Bigil* 💐\n\n`;
+    text += `From: ${name}\n\n`;
+    text += `${message}`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank', 'noopener');
+
+    wishesForm.style.display = 'none';
+    document.getElementById('wishes-success').classList.add('show');
+  });
 }
 
 /* ====================================================
